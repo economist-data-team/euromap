@@ -1,3 +1,18 @@
 /* project-specific CSS belongs here */
 
 /* intentionally empty */
+#National_Border {
+  polyline, path {
+    stroke-width: 0.6;
+    stroke-miterlimit: 10;
+    stroke-linejoin: round;
+  }
+}
+
+#text-backing {
+  text {
+    stroke-width: 1.5;
+    stroke-miterlimit: 10;
+    stroke-linejoin: round;
+  }
+}

@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import DOMProperty from 'react/lib/DOMProperty';
+import ReactInjection from 'react/lib/ReactInjection';
 ///////////////////////
 // UTILITY FUNCTIONS //
 ///////////////////////
@@ -142,6 +144,27 @@ export function bindValueToRange(value, min, max) {
   var order = rg[1] > rg[0];
   return Math.max(rg[+!order], Math.min(rg[+order], value));
 }
+
+/**
+ * adds a DOM property to React's list of recognized properties
+ *
+ * @param  {string} propertyKey - the key recognized by React
+ * @param  {string} propertyName - the property name in the DOM
+ */
+export function addDOMProperty(propertyKey, propertyName) {
+  const MUST_USE_ATTRIBUTE = DOMProperty.injection.MUST_USE_ATTRIBUTE;
+
+  var newProperty = { Properties : {}, DOMAttributeNames : {} };
+
+  newProperty.Properties[propertyKey] = MUST_USE_ATTRIBUTE;
+  newProperty.DOMAttributeNames[propertyKey] = propertyName;
+
+  ReactInjection.DOMProperty.injectDOMPropertyConfig(newProperty);
+}
+
+
+// these are some weird side utilities for working with immutable-ish
+// objects
 
 /**
  * extends a copy of an object
