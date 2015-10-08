@@ -10,7 +10,7 @@ import Header from './header.js';
 import ToggleBarRaw from './toggle-bar.js';
 import ChartContainer from './chart-container.js';
 
-import Euromap from './euromap.js';
+import EuromapRaw from './euromap.js';
 
 import { dispatch, createStore } from 'redux';
 import { connect, Provider } from 'react-redux';
@@ -51,6 +51,28 @@ function connectMap(map) {
 }
 
 var ToggleBar = connectMap({ value : 'highlight' })(ToggleBarRaw);
+var Euromap = connect(function(state) {
+  var colours_out = {};
+  switch(state.highlight) {
+    case('euro'):
+      colours_out.colour_euro_schengen = colours.red[0];
+      colours_out.colour_euro_noschengen = colours.red[0];
+      colours_out.colour_andorra = colours.red[0];
+      break;
+    case('EU'):
+      colours_out.colour_euro_noschengen = colours.red[1];
+      colours_out.colour_eu_noschengen = colours.red[1];
+      colours_out.colour_euro_schengen = colours.red[1];
+      colours_out.colour_eu_schengen = colours.red[1];
+      break;
+    case('schengen'):
+      colours_out.colour_euro_schengen = colours.red[2];
+      colours_out.colour_eu_schengen = colours.red[2];
+      colours_out.colour_schengen = colours.red[2];
+      break;
+  }
+  return colours_out;
+})(EuromapRaw);
 
 var store = createStore(updateState);
 

@@ -16,7 +16,26 @@ var colour_schengen = '#BFE0F0';
 var colour_none = '#E2E3E4';
 
 export default class Euromap extends SVGComponent {
+  static get defaultProps() {
+    return {
+      colour_euro_schengen : '#0082C3',
+      colour_euro_noschengen : '#00A67C',
+      colour_eu_schengen : '#40A1D2',
+      colour_eu_noschengen : '#8CD7C4',
+      colour_schengen : '#BFE0F0',
+      colour_none : '#E2E3E4',
+      colour_andorra : '#00A67C'
+    };
+  }
   render() {
+    var colour_euro_schengen = this.props.colour_euro_schengen;
+    var colour_euro_noschengen = this.props.colour_euro_noschengen;
+    var colour_eu_schengen = this.props.colour_eu_schengen;
+    var colour_eu_noschengen = this.props.colour_eu_noschengen;
+    var colour_schengen = this.props.colour_schengen;
+    var colour_none = this.props.colour_none;
+    var colour_andorra = this.props.colour_andorra;
+
     return (<svg version="1.1" x="0px" y="0px"
        viewBox="0 0 240 224.4">
     <g id="MAP">
@@ -248,7 +267,7 @@ export default class Euromap extends SVGComponent {
         <path fill={colour_none} d="M130.2,95l-0.1,0.2l-1,0.3l-2-0.4C127.2,95.1,126.7,94.8,130.2,95z"/>
       </g>
       <g id="NATO_members">
-        <path className="active-country" id="AND" fill={colour_euro_noschengen} d="M94.4,174.5c0,0.1,0,0.2,0,0.4c0,0.3-0.1,0.8,0.2,1c0.6,0.5,0.8-0.4,1.1-0.8
+        <path className="active-country" id="AND" fill={colour_andorra} d="M94.4,174.5c0,0.1,0,0.2,0,0.4c0,0.3-0.1,0.8,0.2,1c0.6,0.5,0.8-0.4,1.1-0.8
           c0.1-0.2,0.4-0.3,0.4-0.6c0-0.2-0.3-0.4-0.5-0.5c-0.3-0.2-0.6-0.2-0.9-0.1C94.5,174.1,94.4,174.3,94.4,174.5z"/>
         <path className="active-country" id="CHE" fill={colour_schengen} d="M120.9,144.6l0.6,0.5c1.8-0.2,3.4-0.4,4.7-0.7c2,0.6,3.1,1.3,3.5,1.7l-0.4,1.4l0.6,1
           c0.9,0.5,1.5,0.8,2,0.9l0.6-0.3l0.6,0.4l-0.3,0.8l0,0.5l-0.4,0.2l-0.8,0l-0.1,0.5l0.3,1l-0.1,0.3l-2.5-0.4l-1-0.7
@@ -686,7 +705,7 @@ export default class Euromap extends SVGComponent {
           l-0.4,0.5l0.6,0.1l0.8-0.5C30,11.1,29.5,12,29,12.7L28,13.1L27.6,14l-0.9-0.6l0-0.5l-0.5-0.6l-0.5-0.1l-0.2,1.1
           c-3.6,3.3-4.5,3.8-5.1,4.1l-1.1-0.2l-0.8,0.3l-0.2-0.5c-0.3,0.2-0.6,0.4-0.8,0.7l-0.1,0.7l-1.2,0.3l-2.3,2.3
           c-1.3,0.4-2.1,0.8-2.5,1.1l-1.1-0.5l-0.5,0.4L9,21.4c-0.6-0.1-1.4-0.4-2.3-0.9L5.9,20.5z"/>
-        <rect className="active-country" id="LIE" x="122.3" y="138.9" fill={colour_schengen} width="3.8" height="3.8"/>
+        <rect className="active-country" id="LIE" x="122.3" y="138.9" fill={colour_schengen} stroke="#FFFFFF" strokeWidth="0.4" width="3.8" height="3.8"/>
         <path className="active-country" id="IRL" fill={colour_euro_noschengen} d="M63.7,100.7l-0.2,0l-0.2-0.4c0-0.8,0-1.4-0.1-1.7l-1.1-1.2l-2.3,0.5c-0.3,0.6-0.8,1.2-1.5,1.8
           l-0.9-0.5l-0.5-1.4L55.7,97l0.9-0.6l0-1l0.8-0.1l0.5-0.8c0.1-0.6,0.1-1.7,0-3.1l-1.2,0.5l-0.3-0.2c-1.1,0.7-1.6,1.2-1.9,1.3
           l-0.2,0.7l0.2,0.4c-0.4,0.6-0.9,1-1.5,1.4l0.2,0.5c0.7,0.1,1.5,0.1,2.2,0l0,0.3L55,97l-1.4,0.9l-0.1,0.8l-1.2-0.1L51,98.8

@@ -1,11 +1,10 @@
 import d3 from 'd3';
 import React from 'react';
 import { parseMarginArray } from './utilities.js';
-import InteractiveComponent from './interactive-component.js';
 
 // TODO: a standard way to swap between the parent element being
 // <svg> and <g>
-export default class SVGComponent extends InteractiveComponent {
+export default class SVGComponent extends React.Component {
   constructor() {
     super(...arguments);
     this.selectRef = this.selectRef.bind(this);
@@ -23,7 +22,6 @@ export default class SVGComponent extends InteractiveComponent {
     return(<div>This function should be overwritten.</div>);
   }
   componentDidMount() {
-    super.componentDidMount.apply(this, arguments);
     this.d3render();
   }
   componentDidUpdate() {
