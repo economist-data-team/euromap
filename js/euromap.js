@@ -1820,7 +1820,7 @@ export default class Euromap extends SVGComponent {
         <text transform="matrix(1 0 0 1 191.1857 37.9963)" fill="#FFFFFF" fontFamily="Officina" fontSize="5.5">FINLAND</text>
         <text transform="matrix(1 0 0 1 140.8434 71.5902)" fill="#231F20" fontFamily="Officina" fontSize="5.5">SWEDEN</text>
         <text transform="matrix(1 0 0 1 50.9155 104.3179)" fill="#FFFFFF" fontFamily="Officina" fontSize="5.5">IRELAND</text>
-        <text transform="matrix(1 0 0 1 8.3417 8.5743)" fill="#231F20" fontFamily="Officina" fontSize="5.5">ICELAND</text>
+        <text transform="matrix(1 0 0 1 5.3417 9.5743)" fill="#231F20" fontFamily="Officina" fontSize="5.5">ICELAND</text>
         <text transform="matrix(1 0 0 1 74.6554 114.8711)" fill="#231F20" fontFamily="Officina" fontSize="5.5">BRITAIN</text>
         <text transform="matrix(1 0 0 1 67.862 187.6759)" fill="#FFFFFF" fontFamily="Officina" fontSize="5.5">SPAIN</text>
         <text transform="matrix(1 0 0 1 91.5795 151.0924)" fill="#FFFFFF" fontFamily="Officina" fontSize="5.5">FRANCE</text>
