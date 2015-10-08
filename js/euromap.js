@@ -37,11 +37,9 @@ export default class Euromap extends SVGComponent {
     var colour_andorra = this.props.colour_andorra;
 
     return (<svg version="1.1" x="0px" y="0px"
+      id="euromap" width="595" height="556"
        viewBox="0 0 240 224.4">
     <g id="MAP">
-      <defs>
-        <rect id="SVGID" x="0" y="-0.5" width="240" height="224.2"/>
-      </defs>
       <g id="Land_Fill">
         <path fill={colour_none} d="M79.2,215.2l0.4,1.2l0.6,0.4l-0.3,0.4l0.5,0.8l-0.3,0.6c0.3,1,0.4,2,0.3,3l-0.2,0.3l0.6,0.6l0.1,0.4
           l-0.3,1.3l0.5,1.1l0,0.5l0.7,1.2l1.6,1.2l0,0.1l-0.4,0.2l-0.5,0.6l-0.1,0.5l0.3,0.6l-0.3,0.1l-0.6-0.3l-1.2,0l-1.1-0.2
