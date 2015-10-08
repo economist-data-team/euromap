@@ -1,9 +1,7 @@
 import React from 'react';
-import Im from 'immutable';
-import interactive from './interactive.js';
-import InteractiveComponent from './interactive-component.js';
+import { Im } from './utilities.js';
 
-class Option extends InteractiveComponent {
+class Option extends React.Component {
   constructor() {
     super(...arguments);
     this.clickAction = this.clickAction.bind(this);
@@ -18,36 +16,27 @@ class Option extends InteractiveComponent {
   }
 }
 
-export default class ToggleBar extends InteractiveComponent {
+export default class ToggleBar extends React.Component {
   constructor(props) {
     super(...arguments);
-    this.state = { activeKey : interactive.stores['meta'].get(`toggle-${props.name}`) };
   }
   static get defaultProps() {
     return {
-      name : 'toggle',
-      items : Im.fromJS([
+      items : [
         { title : 'Foo', key : 'foo', value : 'foo' },
         { title : 'Bar', key : 'bar', value : 'bar' }
-      ])
+      ],
+      action : (v) => { console.log(v); }
     };
   }
   get itemElements () {
     return this.props.items.map((item) => {
-      item = item.merge({
-        key : item.get('value'),
-        action : (v) => { interactive.action('setToggle', this.props.name, v) },
-        active : item.get('value') === this.state.activeKey
+      item = Im.extend(item, {
+        key : item.value,
+        action : this.props.action,
+        active : item.value === this.props.value
       });
-      return (<Option {...item.toObject()} />);
-    });
-  }
-  componentDidMount() {
-    super.componentDidMount(...arguments);
-    interactive.stores['meta'].on('change', (store) => {
-      this.setState({
-        activeKey : store.get(`toggle-${this.props.name}`)
-      });
+      return (<Option {...item} />);
     });
   }
   render() {
