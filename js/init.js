@@ -71,8 +71,14 @@ var Euromap = connect(function(state) {
       props_out.colour_schengen = colours.red[1];
       break;
     default:
+      props_out.colour_euro_schengen = '#0082C3';
+      props_out.colour_euro_noschengen = '#00A67C';
+      props_out.colour_eu_schengen = '#40A1D2';
+      props_out.colour_eu_noschengen = '#8CD7C4';
+      props_out.colour_schengen = '#BFE0F0';
+      props_out.colour_none = '#E2E3E4';
+      props_out.colour_andorra = '#00A67C';
       props_out.show_key = true;
-      break;
   }
   return props_out;
 })(EuromapRaw);

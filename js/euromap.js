@@ -18,13 +18,13 @@ var colour_none = '#E2E3E4';
 export default class Euromap extends SVGComponent {
   static get defaultProps() {
     return {
-      colour_euro_schengen : '#0082C3',
-      colour_euro_noschengen : '#00A67C',
-      colour_eu_schengen : '#40A1D2',
-      colour_eu_noschengen : '#8CD7C4',
-      colour_schengen : '#BFE0F0',
+      colour_euro_schengen : '#E2E3E4',
+      colour_euro_noschengen : '#E2E3E4',
+      colour_eu_schengen : '#E2E3E4',
+      colour_eu_noschengen : '#E2E3E4',
+      colour_schengen : '#E2E3E4',
       colour_none : '#E2E3E4',
-      colour_andorra : '#00A67C',
+      colour_andorra : '#E2E3E4',
       show_key : false
     };
   }

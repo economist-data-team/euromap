@@ -22,3 +22,8 @@
   height: 556px;
   overflow: hidden;
 }
+
+.chart-container .tab-bar .tab.active-tab {
+  background-color: var(--red-2);
+  border-color : var(--red-2);
+}
