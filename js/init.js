@@ -52,26 +52,29 @@ function connectMap(map) {
 
 var ToggleBar = connectMap({ value : 'highlight' })(ToggleBarRaw);
 var Euromap = connect(function(state) {
-  var colours_out = {};
+  var props_out = {};
   switch(state.highlight) {
     case('euro'):
-      colours_out.colour_euro_schengen = colours.red[0];
-      colours_out.colour_euro_noschengen = colours.red[0];
-      colours_out.colour_andorra = colours.red[0];
+      props_out.colour_euro_schengen = colours.red[1];
+      props_out.colour_euro_noschengen = colours.red[1];
+      props_out.colour_andorra = colours.red[1];
       break;
     case('EU'):
-      colours_out.colour_euro_noschengen = colours.red[1];
-      colours_out.colour_eu_noschengen = colours.red[1];
-      colours_out.colour_euro_schengen = colours.red[1];
-      colours_out.colour_eu_schengen = colours.red[1];
+      props_out.colour_euro_noschengen = colours.red[1];
+      props_out.colour_eu_noschengen = colours.red[1];
+      props_out.colour_euro_schengen = colours.red[1];
+      props_out.colour_eu_schengen = colours.red[1];
       break;
     case('schengen'):
-      colours_out.colour_euro_schengen = colours.red[2];
-      colours_out.colour_eu_schengen = colours.red[2];
-      colours_out.colour_schengen = colours.red[2];
+      props_out.colour_euro_schengen = colours.red[1];
+      props_out.colour_eu_schengen = colours.red[1];
+      props_out.colour_schengen = colours.red[1];
+      break;
+    default:
+      props_out.show_key = true;
       break;
   }
-  return colours_out;
+  return props_out;
 })(EuromapRaw);
 
 var store = createStore(updateState);

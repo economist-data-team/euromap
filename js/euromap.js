@@ -24,7 +24,8 @@ export default class Euromap extends SVGComponent {
       colour_eu_noschengen : '#8CD7C4',
       colour_schengen : '#BFE0F0',
       colour_none : '#E2E3E4',
-      colour_andorra : '#00A67C'
+      colour_andorra : '#00A67C',
+      show_key : false
     };
   }
   render() {
@@ -35,6 +36,22 @@ export default class Euromap extends SVGComponent {
     var colour_schengen = this.props.colour_schengen;
     var colour_none = this.props.colour_none;
     var colour_andorra = this.props.colour_andorra;
+
+    var key = this.props.show_key ? (<g id="KEY">
+          <rect x="40.2" y="3" fill="#FFFFFF" stroke="#00526D" strokeWidth="0.3" width="133" height="30.9"/>
+          <rect x="135.2" y="14.6" fill={colour_eu_schengen} width="7" height="7"/>
+          <rect x="135.2" y="24.8" fill={colour_eu_noschengen} width="7" height="7"/>
+          <rect x="102.2" y="14.6" fill={colour_euro_schengen} width="7" height="7"/>
+          <rect x="102.2" y="24.8" fill={colour_euro_noschengen} width="7" height="7"/>
+          <rect x="159.1" y="14.6" fill={colour_schengen} width="7" height="7"/>
+          <rect x="159.1" y="24.8" fill={colour_none} width="7" height="7"/>
+          <text transform="matrix(1 0 0 1 40.21 10.5866)"><tspan x="0" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="1">  </tspan><tspan x="3" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="42">  </tspan><tspan x="47" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5">EU &amp; Eurozone </tspan><tspan x="86.2" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="2">  </tspan><tspan x="90" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5">EU only</tspan><tspan x="109.5" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="5">  </tspan><tspan x="116" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5">none</tspan><tspan x="0" y="10" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="1">  </tspan><tspan x="3" y="10" fill="#231F20" fontFamily="Officina" fontSize="6.5">Schengen</tspan><tspan x="28.2" y="10" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="17">  </tspan><tspan x="0" y="20" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="1">  </tspan><tspan x="3" y="20" fill="#231F20" fontFamily="Officina" fontSize="6.5">Non-Schengen</tspan></text>
+          <line stroke="#00526D" strokeWidth="0.3" x1="40.2" y1="13" x2="173.2" y2="13"/>
+          <line stroke="#00526D" strokeWidth="0.3" x1="40.2" y1="23" x2="173.2" y2="23"/>
+          <line stroke="#00526D" strokeWidth="0.3" x1="127.2" y1="3.1" x2="127.2" y2="33.9"/>
+          <line stroke="#00526D" strokeWidth="0.3" x1="152.4" y1="3.1" x2="152.4" y2="33.9"/>
+          <line stroke="#00526D" strokeWidth="0.3" x1="84.2" y1="3.1" x2="84.2" y2="33.9"/>
+        </g>) : null;
 
     return (<svg version="1.1" x="0px" y="0px"
       id="euromap" width="595" height="556"
@@ -1906,21 +1923,7 @@ export default class Euromap extends SVGComponent {
         <text transform="matrix(1 0 0 1 117.7516 86.5023)" fill="#FFFFFF" fontFamily="Officina" fontSize="5.5">DENMARK</text>
       </g>
     </g>
-    <g id="KEY">
-      <rect x="40.2" y="3" fill="#FFFFFF" stroke="#00526D" strokeWidth="0.3" width="133" height="30.9"/>
-      <rect x="135.2" y="14.6" fill={colour_eu_schengen} width="7" height="7"/>
-      <rect x="135.2" y="24.8" fill={colour_eu_noschengen} width="7" height="7"/>
-      <rect x="102.2" y="14.6" fill={colour_euro_schengen} width="7" height="7"/>
-      <rect x="102.2" y="24.8" fill={colour_euro_noschengen} width="7" height="7"/>
-      <rect x="159.1" y="14.6" fill={colour_schengen} width="7" height="7"/>
-      <rect x="159.1" y="24.8" fill={colour_none} width="7" height="7"/>
-      <text transform="matrix(1 0 0 1 40.21 10.5866)"><tspan x="0" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="1">  </tspan><tspan x="3" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="42">  </tspan><tspan x="47" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5">EU &amp; Eurozone </tspan><tspan x="86.2" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="2">  </tspan><tspan x="90" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5">EU only</tspan><tspan x="109.5" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5" letterSpacing="5">  </tspan><tspan x="116" y="0" fill="#231F20" fontFamily="Officina" fontSize="6.5">none</tspan><tspan x="0" y="10" fill="#231F20" fontFamily="'OfficinaSanITC-Book'" fontSize="6.5" letterSpacing="1">  </tspan><tspan x="3" y="10" fill="#231F20" fontFamily="'OfficinaSanITC-Book'" fontSize="6.5">Schengen</tspan><tspan x="28.2" y="10" fill="#231F20" fontFamily="'OfficinaSanITC-Book'" fontSize="6.5" letterSpacing="17">  </tspan><tspan x="0" y="20" fill="#231F20" fontFamily="'OfficinaSanITC-Book'" fontSize="6.5" letterSpacing="1">  </tspan><tspan x="3" y="20" fill="#231F20" fontFamily="'OfficinaSanITC-Book'" fontSize="6.5">Non-Schengen</tspan></text>
-      <line stroke="#00526D" strokeWidth="0.3" x1="40.2" y1="13" x2="173.2" y2="13"/>
-      <line stroke="#00526D" strokeWidth="0.3" x1="40.2" y1="23" x2="173.2" y2="23"/>
-      <line stroke="#00526D" strokeWidth="0.3" x1="127.2" y1="3.1" x2="127.2" y2="33.9"/>
-      <line stroke="#00526D" strokeWidth="0.3" x1="152.4" y1="3.1" x2="152.4" y2="33.9"/>
-      <line stroke="#00526D" strokeWidth="0.3" x1="84.2" y1="3.1" x2="84.2" y2="33.9"/>
-    </g>
+    {key}
     </svg>);
   }
 }
