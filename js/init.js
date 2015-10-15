@@ -50,6 +50,9 @@ function connectMap(map) {
   });
 }
 
+var colour_text_light = '#FFFFFF';
+var colour_text_dark = '#231F20';
+
 var ToggleBar = connectMap({ value : 'highlight' })(ToggleBarRaw);
 var Euromap = connect(function(state) {
   var props_out = {};
@@ -58,17 +61,47 @@ var Euromap = connect(function(state) {
       props_out.colour_euro_schengen = colours.red[1];
       props_out.colour_euro_noschengen = colours.red[1];
       props_out.colour_andorra = colours.red[1];
+
+      props_out.colour_text_euro_schengen = colour_text_light;
+      props_out.colour_text_euro_noschengen = colour_text_light;
+      props_out.colour_text_eu_schengen = colour_text_dark;
+      props_out.colour_text_eu_noschengen = colour_text_dark;
+      props_out.colour_text_schengen = colour_text_dark;
+
+      props_out.colour_text_denmark = false;
+      props_out.colour_text_ireland = true;
+
       break;
     case('EU'):
       props_out.colour_euro_noschengen = colours.red[1];
       props_out.colour_eu_noschengen = colours.red[1];
       props_out.colour_euro_schengen = colours.red[1];
       props_out.colour_eu_schengen = colours.red[1];
+
+      props_out.colour_text_euro_schengen = colour_text_light;
+      props_out.colour_text_euro_noschengen = colour_text_light;
+      props_out.colour_text_eu_schengen = colour_text_light;
+      props_out.colour_text_eu_noschengen = colour_text_light;
+      props_out.colour_text_schengen = colour_text_dark;
+
+      props_out.colour_text_denmark = true;
+      props_out.colour_text_ireland = true;
+
       break;
     case('schengen'):
       props_out.colour_euro_schengen = colours.red[1];
       props_out.colour_eu_schengen = colours.red[1];
       props_out.colour_schengen = colours.red[1];
+
+      props_out.colour_text_euro_schengen = colour_text_light;
+      props_out.colour_text_euro_noschengen = colour_text_dark;
+      props_out.colour_text_eu_schengen = colour_text_light;
+      props_out.colour_text_eu_noschengen = colour_text_dark;
+      props_out.colour_text_schengen = colour_text_light;
+
+      props_out.colour_text_denmark = true;
+      props_out.colour_text_ireland = false;
+
       break;
     default:
       props_out.colour_euro_schengen = '#0082C3';
@@ -78,6 +111,16 @@ var Euromap = connect(function(state) {
       props_out.colour_schengen = '#BFE0F0';
       props_out.colour_none = '#E2E3E4';
       props_out.colour_andorra = '#00A67C';
+
+      props_out.colour_text_euro_schengen = colour_text_light;
+      props_out.colour_text_euro_noschengen = colour_text_light;
+      props_out.colour_text_eu_schengen = colour_text_dark;
+      props_out.colour_text_eu_noschengen = colour_text_dark;
+      props_out.colour_text_schengen = colour_text_dark;
+
+      props_out.colour_text_denmark = true;
+      props_out.colour_text_ireland = true;
+
       props_out.show_key = true;
   }
   return props_out;
@@ -99,7 +142,7 @@ class Chart extends ChartContainer {
 
     return(
       <div className='chart-container'>
-        <Header title="Who’s in, who’s out" subtitle="The groups of Europe"/>
+        <Header title="Who’s in, who’s out" subtitle="Country groupings of Europe"/>
         <ToggleBar {...toggleProps} />
         <Euromap />
       </div>
