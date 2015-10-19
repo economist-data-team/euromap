@@ -133,7 +133,7 @@ class Chart extends ChartContainer {
     var toggleProps = {
       items : [
         { title : 'All', key : 'none', value : 'none' },
-        { title : 'Eurozone', key: 'euro', value : 'euro' },
+        { title : 'Euro-zone', key: 'euro', value : 'euro' },
         { title : 'European Union', key : 'EU', value : 'EU' },
         { title : 'Schengen Zone', key : 'schengen', value : 'schengen' }
       ],
